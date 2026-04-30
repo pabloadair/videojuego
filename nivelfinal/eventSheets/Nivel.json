@@ -1,0 +1,1538 @@
+{
+	"name": "Nivel",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Monedas",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 379246857832754
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "animacion",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 356903212634014,
+							"parameters": {
+								"object": "usuario"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 200179777765591
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "usuario",
+							"sid": 612433536685658,
+							"behaviorType": "Plataforma"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Teclado",
+							"sid": 172647989366875,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "is-on-floor",
+							"objectClass": "usuario",
+							"sid": 345751591489216,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario",
+							"sid": 581341802482250,
+							"parameters": {
+								"animation": "\"Correr\"",
+								"from": "current-frame"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "usuario",
+							"sid": 699503556859193,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 467543633020338
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-jumping",
+							"objectClass": "usuario",
+							"sid": 949836666987756,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario",
+							"sid": 529146075353849,
+							"parameters": {
+								"animation": "\"saltar\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 164962569479510,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Teclado",
+									"sid": 911938182182812,
+									"parameters": {
+										"key": 38
+									}
+								}
+							],
+							"actions": [],
+							"sid": 873570784405746
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "usuario",
+							"sid": 695008579203818,
+							"behaviorType": "Plataforma"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Teclado",
+							"sid": 915511841779179,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario",
+							"sid": 201419795907660,
+							"parameters": {
+								"animation": "\"Correr\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "usuario",
+							"sid": 549049352850342,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 507243380544468
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "usuario",
+							"sid": 250416126658136,
+							"behaviorType": "Plataforma"
+						},
+						{
+							"id": "compare-speed",
+							"objectClass": "usuario",
+							"sid": 345647367981868,
+							"behaviorType": "Plataforma",
+							"parameters": {
+								"comparison": 0,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario",
+							"sid": 451854003415167,
+							"parameters": {
+								"animation": "\"Quieto\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 178038083547611
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario",
+							"sid": 107588256860906,
+							"parameters": {
+								"object": "duende"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "usuario",
+							"sid": 110203633882139,
+							"parameters": {
+								"instance-variable": "vida",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "barradevida",
+							"sid": 449702445896999,
+							"parameters": {
+								"width": "barradevida.Width -10"
+							}
+						}
+					],
+					"sid": 703277494509658,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "usuario",
+									"sid": 650207027140867,
+									"parameters": {
+										"instance-variable": "vida",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-width",
+									"objectClass": "barradevida",
+									"sid": 848097863097134,
+									"parameters": {
+										"comparison": 3,
+										"width": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "barradevida",
+									"sid": 346310874223885,
+									"parameters": {
+										"width": "0"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 274424573929177,
+									"parameters": {
+										"object-to-create": "Muerte",
+										"layer": "3",
+										"x": "usuario.X",
+										"y": "usuario.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "usuario",
+									"sid": 520122133394046
+								},
+								{
+									"id": "reset-global-variables",
+									"objectClass": "System",
+									"sid": 762662346044558
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 634437332527696,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 709914287810971
+								}
+							],
+							"sid": 992888763662786,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario",
+							"sid": 719775278952592,
+							"parameters": {
+								"instance-variable": "vida",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "barradevida",
+							"sid": 673905922259705,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 985936477964218,
+							"parameters": {
+								"object-to-create": "Muerte",
+								"layer": "3",
+								"x": "usuario.X",
+								"y": "usuario.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario",
+							"sid": 473475860254126
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 476061364155416,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 214966777269924,
+							"parameters": {
+								"layout": "Prologo"
+							}
+						}
+					],
+					"sid": 492185072905222,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 126039291508991,
+							"parameters": {
+								"object": "puas1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 692678286227262,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "usuario",
+									"sid": 925050126852433,
+									"parameters": {
+										"object": "puas1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "barradevida",
+									"sid": 622937636933501,
+									"parameters": {
+										"width": "0"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 679956567109897,
+									"parameters": {
+										"object-to-create": "Muerte",
+										"layer": "3",
+										"x": "usuario.X",
+										"y": "usuario.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "usuario",
+									"sid": 833313250831040
+								},
+								{
+									"id": "reset-global-variables",
+									"objectClass": "System",
+									"sid": 866341199984744
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 358438480737704,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 561198587768627,
+									"parameters": {
+										"layout": "Prologo"
+									}
+								}
+							],
+							"sid": 856943540704634
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario",
+							"sid": 589081678025927,
+							"parameters": {
+								"object": "fin"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "barradevida",
+							"sid": 558099897229042,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 582284434711546,
+							"parameters": {
+								"object-to-create": "Muerte",
+								"layer": "3",
+								"x": "usuario.X",
+								"y": "usuario.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario",
+							"sid": 942894303016793
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 270764376228773,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 653802935211645,
+							"parameters": {
+								"layout": "Prologo"
+							}
+						}
+					],
+					"sid": 419669274709227
+				}
+			],
+			"sid": 181369841942870
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Ataque",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 874625461056172
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "espada",
+							"sid": 900516958433694,
+							"parameters": {
+								"x": "usuario.X",
+								"y": "usuario.Y"
+							}
+						}
+					],
+					"sid": 305492375359684
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-mirrored",
+							"objectClass": "usuario",
+							"sid": 261379470261852
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "espada",
+							"sid": 204190194178929,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 683056139508531
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 449935925104086
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "espada",
+							"sid": 825712936998277,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 604759651273632
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Teclado",
+							"sid": 664553639368178,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario",
+							"sid": 692971691393210,
+							"parameters": {
+								"animation": "\"atack\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 425688376871615,
+							"parameters": {
+								"object-to-create": "espada",
+								"layer": "1",
+								"x": "usuario.X",
+								"y": "usuario.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 177053850657392
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "espada",
+							"sid": 277684090039338,
+							"parameters": {
+								"animation": "\"atack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "espada",
+							"sid": 337928135537843
+						}
+					],
+					"sid": 731832879683666
+				}
+			],
+			"sid": 606962536811199
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Moneda",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario",
+							"sid": 917295719621565,
+							"parameters": {
+								"object": "moneda"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 161451762011619,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 297898381813256
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "moneda",
+									"sid": 882439650470686
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 158579307010529,
+									"parameters": {
+										"variable": "Monedas",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 821472456500939
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 513503548119919
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "NumeroMonedas",
+							"sid": 154575272372080,
+							"parameters": {
+								"text": "Monedas"
+							}
+						}
+					],
+					"sid": 435956188002894
+				}
+			],
+			"sid": 880578320388259
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "meta",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario",
+							"sid": 450277095927092,
+							"parameters": {
+								"object": "meta"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 833099107024469,
+							"parameters": {
+								"layout": "nivelpart2"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario",
+							"sid": 720604250968217
+						}
+					],
+					"sid": 985501740916460
+				}
+			],
+			"sid": 866226958166114
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "camara",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 475913096374525
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "camara",
+							"sid": 484329374738251,
+							"parameters": {
+								"x": "lerp(camara.X, usuario.X, 0.05)",
+								"y": "lerp(camara.Y, usuario.Y, 0.05)"
+							}
+						}
+					],
+					"sid": 869340999174918
+				}
+			],
+			"sid": 920400080845445
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "llavePuerta",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario",
+							"sid": 205516460154615,
+							"parameters": {
+								"object": "llave"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 966222740094132,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 311066709313306
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "usuario",
+									"sid": 986295366694430,
+									"parameters": {
+										"instance-variable": "llave",
+										"value": "1"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "llave",
+									"sid": 629409485500238
+								}
+							],
+							"sid": 479869346883515
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "usuario",
+							"sid": 565777971160225,
+							"parameters": {
+								"object": "detector"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario",
+							"sid": 736260919692340,
+							"parameters": {
+								"instance-variable": "llave",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "detectorllave",
+							"sid": 164791624489418,
+							"parameters": {
+								"text": "\"Te falto la contraseña de las computadoras\""
+							}
+						}
+					],
+					"sid": 992084882996332
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "usuario",
+							"sid": 411360178215681,
+							"parameters": {
+								"object": "detector"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario",
+							"sid": 744498945770050,
+							"parameters": {
+								"instance-variable": "llave",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "detectorllave",
+							"sid": 713628292473130,
+							"parameters": {
+								"text": "\"Felicidades entraras a los servidores del TESCHA\""
+							}
+						}
+					],
+					"sid": 144587392952192
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "usuario",
+							"sid": 207340212287216,
+							"parameters": {
+								"object": "detector"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "detectorllave",
+							"sid": 298119924157778,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 661716334964454
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario",
+							"sid": 759771830994144,
+							"parameters": {
+								"object": "puerta"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario",
+							"sid": 631505081716702,
+							"parameters": {
+								"instance-variable": "llave",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "puerta",
+							"sid": 453939676581697
+						},
+						{
+							"id": "destroy",
+							"objectClass": "puntocontrol",
+							"sid": 943471986006189
+						}
+					],
+					"sid": 792522489691826,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 775845823574543
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "usuario",
+									"sid": 634274226052061,
+									"parameters": {
+										"instance-variable": "llave",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 942697769509685
+						}
+					]
+				}
+			],
+			"sid": 459432285713514
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "musica",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 438832717713686
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 641062049841374,
+							"parameters": {
+								"folder": "music",
+								"audio-file-name": "\"Pixel 4\"",
+								"loop": "looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 740099795974127
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-end-of-layout",
+							"objectClass": "System",
+							"sid": 375400360844819
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 510488916774922
+						}
+					],
+					"sid": 855625872391835
+				}
+			],
+			"sid": 560350050200985
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AtqueDuende",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 334363510586878,
+							"parameters": {
+								"object": "duende"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 354402363318949,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "duende",
+									"sid": 759450495416251,
+									"behaviorType": "LíneaDeVisión",
+									"parameters": {
+										"object": "usuario",
+										"image-point": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 731860506807981,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 374451559507082,
+											"parameters": {
+												"first-value": "distance(duende.X,duende.Y,usuario.X,usuario.Y)",
+												"comparison": 4,
+												"second-value": "50"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 284463922437425,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "usuario",
+													"sid": 481901084161556,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "duende.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "duende",
+													"sid": 567242597367120,
+													"behaviorType": "Plataforma",
+													"parameters": {
+														"control": "left"
+													}
+												},
+												{
+													"id": "set-mirrored",
+													"objectClass": "duende",
+													"sid": 135294492074819,
+													"parameters": {
+														"state": "mirrored"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "duende",
+													"sid": 927729702184811,
+													"parameters": {
+														"animation": "\"run\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 544011068426873
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "usuario",
+													"sid": 445237181190510,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "duende.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "duende",
+													"sid": 287598436925755,
+													"behaviorType": "Plataforma",
+													"parameters": {
+														"control": "right"
+													}
+												},
+												{
+													"id": "set-mirrored",
+													"objectClass": "duende",
+													"sid": 101502509603041,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "duende",
+													"sid": 198950231828291,
+													"parameters": {
+														"animation": "\"run\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 697381332657736
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 568811370979254,
+											"parameters": {
+												"first-value": "distance(duende.X,duende.Y,usuario.X,usuario.Y)",
+												"comparison": 3,
+												"second-value": "50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "duende",
+											"sid": 776383750148883,
+											"parameters": {
+												"animation": "\"atack\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 341284604998039
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "duende",
+							"sid": 171844361787270,
+							"behaviorType": "LíneaDeVisión",
+							"parameters": {
+								"object": "usuario",
+								"image-point": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "duende",
+							"sid": 636375481495645,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 755938124660098
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "duende",
+							"sid": 168843422638978,
+							"parameters": {
+								"object": "usuario"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "duende",
+							"sid": 291369710714526,
+							"parameters": {
+								"animation": "\"atack\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "duende",
+							"sid": 715704325748285,
+							"parameters": {
+								"comparison": 5,
+								"number": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "usuario",
+							"sid": 846085851294080,
+							"parameters": {
+								"instance-variable": "vida",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "barradevida",
+							"sid": 262676082927451,
+							"parameters": {
+								"width": "barradevida.Width -10"
+							}
+						}
+					],
+					"sid": 696523934366751,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "usuario",
+									"sid": 780786431225664,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "duende.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "usuario",
+									"sid": 997533985674348,
+									"parameters": {
+										"x": "usuario.X-5"
+									}
+								}
+							],
+							"sid": 104446447847727
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "usuario",
+									"sid": 324250367754435,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "duende.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "usuario",
+									"sid": 932062640787706,
+									"parameters": {
+										"x": "usuario.X+5"
+									}
+								}
+							],
+							"sid": 740105180849255
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario",
+							"sid": 238814471267958,
+							"parameters": {
+								"instance-variable": "vida",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-width",
+							"objectClass": "barradevida",
+							"sid": 189097014210348,
+							"parameters": {
+								"comparison": 3,
+								"width": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "barradevida",
+							"sid": 742821102854754,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 624743644543923,
+							"parameters": {
+								"object-to-create": "Muerte",
+								"layer": "1",
+								"x": "usuario.X",
+								"y": "usuario.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario",
+							"sid": 146925993053532
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 766303792069824,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 126408505687498
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 233275175093908
+						}
+					],
+					"sid": 813679766170779
+				}
+			],
+			"sid": 959327052663748
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "duendedaño",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "duende",
+							"sid": 396598243576560,
+							"parameters": {
+								"object": "espada"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "duende",
+							"sid": 568160568108713,
+							"parameters": {
+								"instance-variable": "vidaDuende",
+								"value": "10"
+							}
+						}
+					],
+					"sid": 703612817800905,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 870939545176981
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "duende",
+									"sid": 125754004109409,
+									"parameters": {
+										"effect": "\"Brillo\"",
+										"parameter-index": "0",
+										"value": "200"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 776968582786816,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "duende",
+									"sid": 596287210432494,
+									"parameters": {
+										"effect": "\"Brillo\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 242237742004952
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "duende",
+							"sid": 981008617646074,
+							"parameters": {
+								"instance-variable": "vidaDuende",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "duende",
+							"sid": 273004260953380
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 326904358105013,
+							"parameters": {
+								"object-to-create": "Muerteduende",
+								"layer": "1",
+								"x": "duende.X",
+								"y": "duende.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 306602821677504
+				}
+			],
+			"sid": 935820721451852
+		}
+	],
+	"sid": 682984886906059
+}

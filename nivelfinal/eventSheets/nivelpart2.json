@@ -1,0 +1,2344 @@
+{
+	"name": "nivelpart2",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "moneda2",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 143494190716082
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AnimacionUsu",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "usuario2",
+							"sid": 711182959703864,
+							"behaviorType": "Plataforma"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Teclado",
+							"sid": 666107499885748,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "is-on-floor",
+							"objectClass": "usuario2",
+							"sid": 186288646177014,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario2",
+							"sid": 323101253431371,
+							"parameters": {
+								"animation": "\"run\"",
+								"from": "current-frame"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "usuario2",
+							"sid": 989334342219775,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 971514024726640
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-jumping",
+							"objectClass": "usuario2",
+							"sid": 716428580833738,
+							"behaviorType": "Plataforma"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario2",
+							"sid": 813134217555969,
+							"parameters": {
+								"animation": "\"Jump\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 947546645480142,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Teclado",
+									"sid": 625705972974443,
+									"parameters": {
+										"key": 38
+									}
+								}
+							],
+							"actions": [],
+							"sid": 732809284163503
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "usuario2",
+							"sid": 838236267772796,
+							"behaviorType": "Plataforma"
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Teclado",
+							"sid": 920575836335409,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario2",
+							"sid": 274298683084203,
+							"parameters": {
+								"animation": "\"run\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "usuario2",
+							"sid": 667329861765183,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 336764994590101
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "usuario2",
+							"sid": 632965293881326,
+							"behaviorType": "Plataforma"
+						},
+						{
+							"id": "compare-speed",
+							"objectClass": "usuario2",
+							"sid": 358841179078555,
+							"behaviorType": "Plataforma",
+							"parameters": {
+								"comparison": 0,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario2",
+							"sid": 759637603005336,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 180536725471582
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario2",
+							"sid": 243633044065521,
+							"parameters": {
+								"object": "Esqueleto"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "usuario2",
+							"sid": 426932599691336,
+							"parameters": {
+								"instance-variable": "vidas",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "vidabarra",
+							"sid": 190912010835616,
+							"parameters": {
+								"width": "vidabarra.Width -10"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "usuario2",
+							"sid": 375616177819578,
+							"disabled": true,
+							"parameters": {
+								"x": "usuario2.X -10"
+							}
+						}
+					],
+					"sid": 332307538454794,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario2",
+							"sid": 447560482112089,
+							"parameters": {
+								"instance-variable": "vidas",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "vidabarra",
+							"sid": 849115222837839,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "usuario2",
+							"sid": 833622020653330,
+							"behaviorType": "Plataforma",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario2",
+							"sid": 653856167179049
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 811807029860134,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 321368816407400,
+							"parameters": {
+								"layout": "nivelpart2"
+							}
+						}
+					],
+					"sid": 647593318958970,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 915551055597691,
+							"parameters": {
+								"object": "puas1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 734556411392345,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "usuario2",
+									"sid": 263153281680586,
+									"parameters": {
+										"object": "puas1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "vidabarra",
+									"sid": 304661808673900,
+									"parameters": {
+										"width": "0"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "usuario2",
+									"sid": 480001074859277
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 499146556696999,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 993800564380686,
+									"parameters": {
+										"layout": "nivelpart2"
+									}
+								},
+								{
+									"id": "reset-global-variables",
+									"objectClass": "System",
+									"sid": 941119395669722
+								}
+							],
+							"sid": 670844736280483
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario2",
+							"sid": 729499043745054,
+							"parameters": {
+								"object": "fin"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "vidabarra",
+							"sid": 725813561291868,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario2",
+							"sid": 760694535750675
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 127312910929856,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 744581660826290,
+							"parameters": {
+								"layout": "nivelpart2"
+							}
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 614786557297865
+						}
+					],
+					"sid": 432776226620222
+				}
+			],
+			"sid": 840099884007066
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Moneda2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "usuario2",
+							"sid": 415607951044894,
+							"parameters": {
+								"object": "moneda"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 287961459182755,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 858082034034169
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "moneda",
+									"sid": 488215472506622
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 140200555151757,
+									"parameters": {
+										"variable": "moneda2",
+										"value": "5"
+									}
+								}
+							],
+							"sid": 608368489951456
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 965214394878613
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "NumeroMonedas",
+							"sid": 947851248207004,
+							"parameters": {
+								"text": "moneda2"
+							}
+						}
+					],
+					"sid": 498597820639309
+				}
+			],
+			"sid": 779432891523570
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "camara2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 396929663423648
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "camara",
+							"sid": 681717788492564,
+							"parameters": {
+								"x": "lerp(camara.X, usuario2.X, 0.05)",
+								"y": "lerp(camara.Y, usuario2.Y, 0.05)"
+							}
+						}
+					],
+					"sid": 718072599996542
+				}
+			],
+			"sid": 985572860964119
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "EsqueletoAtaque",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 987157477635558,
+							"parameters": {
+								"object": "Esqueleto"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 953393639743175,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "Esqueleto",
+									"sid": 576572781322566,
+									"behaviorType": "LíneaDeVisión",
+									"parameters": {
+										"object": "usuario2",
+										"image-point": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Esqueleto",
+									"sid": 799933736716373,
+									"parameters": {
+										"animation": "\"caminar\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 877362529673593,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "Esqueleto",
+											"sid": 696576986633225,
+											"behaviorType": "LíneaDeVisión",
+											"parameters": {
+												"object": "usuario2",
+												"image-point": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Esqueleto",
+											"sid": 408786968640080,
+											"parameters": {
+												"animation": "\"idle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 634274472616511,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Esqueleto",
+									"sid": 208600789900643,
+									"parameters": {
+										"animation": "\"caminar\""
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Esqueleto",
+									"sid": 425431212755620,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "usuario2.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Esqueleto",
+									"sid": 176844273668674,
+									"behaviorType": "Plataforma",
+									"parameters": {
+										"control": "right"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Esqueleto",
+									"sid": 257131039602733,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 661334986363869,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "usuario2",
+											"sid": 193042536775753,
+											"parameters": {
+												"object": "Esqueleto"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Esqueleto",
+											"sid": 239585236437856,
+											"behaviorType": "Plataforma",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Esqueleto",
+											"sid": 697436671106097,
+											"parameters": {
+												"animation": "\"idle\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-cone-of-view",
+											"objectClass": "Esqueleto",
+											"sid": 953375112928659,
+											"behaviorType": "LíneaDeVisión",
+											"parameters": {
+												"cone-of-view": "0"
+											}
+										},
+										{
+											"id": "set-range",
+											"objectClass": "Esqueleto",
+											"sid": 953665716504774,
+											"behaviorType": "LíneaDeVisión",
+											"parameters": {
+												"range": "0"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Esqueleto",
+											"sid": 441017674979943,
+											"behaviorType": "Sólido",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "usuario2",
+											"sid": 399869671563203,
+											"behaviorType": "Sólido",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 150719945940775,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Esqueleto",
+											"sid": 417375438574508,
+											"parameters": {
+												"animation": "\"ataque\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 387961411951065,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Esqueleto",
+									"sid": 498444179828904,
+									"parameters": {
+										"animation": "\"caminar\""
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Esqueleto",
+									"sid": 691690956904133,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "usuario2.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Esqueleto",
+									"sid": 115552154583835,
+									"behaviorType": "Plataforma",
+									"parameters": {
+										"control": "left"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Esqueleto",
+									"sid": 462020348215314,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 403684640186800,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "usuario2",
+											"sid": 927306048993196,
+											"parameters": {
+												"object": "Esqueleto"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Esqueleto",
+											"sid": 667432246228448,
+											"behaviorType": "Plataforma",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Esqueleto",
+											"sid": 896185619270885,
+											"parameters": {
+												"animation": "\"idle\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-cone-of-view",
+											"objectClass": "Esqueleto",
+											"sid": 224469393072937,
+											"behaviorType": "LíneaDeVisión",
+											"parameters": {
+												"cone-of-view": "0"
+											}
+										},
+										{
+											"id": "set-range",
+											"objectClass": "Esqueleto",
+											"sid": 638890323116981,
+											"behaviorType": "LíneaDeVisión",
+											"parameters": {
+												"range": "0"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Esqueleto",
+											"sid": 865998194748725,
+											"behaviorType": "Sólido",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "usuario2",
+											"sid": 751148067383407,
+											"behaviorType": "Sólido",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 100662056979546,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Esqueleto",
+											"sid": 354569258169057,
+											"parameters": {
+												"animation": "\"ataque\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 618941045157637,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Esqueleto",
+									"sid": 956582121053897,
+									"parameters": {
+										"animation": "\"ataque\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Esqueleto",
+									"sid": 709826121320293,
+									"parameters": {
+										"animation": "\"idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-cone-of-view",
+									"objectClass": "Esqueleto",
+									"sid": 697482663543961,
+									"behaviorType": "LíneaDeVisión",
+									"parameters": {
+										"cone-of-view": "360"
+									}
+								},
+								{
+									"id": "set-range",
+									"objectClass": "Esqueleto",
+									"sid": 268931179418197,
+									"behaviorType": "LíneaDeVisión",
+									"parameters": {
+										"range": "100"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Esqueleto",
+									"sid": 115431967982052,
+									"behaviorType": "Sólido",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "usuario2",
+									"sid": 858822730935102,
+									"behaviorType": "Sólido",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Esqueleto",
+									"sid": 664503927141045,
+									"behaviorType": "Plataforma",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 617257619241375,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Esqueleto",
+									"sid": 822798939721290,
+									"parameters": {
+										"object": "espada"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 790662899294583,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 730091867050669
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Esqueleto",
+											"sid": 453028971449132,
+											"parameters": {
+												"instance-variable": "vidaesque",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-effect-parameter",
+											"objectClass": "Esqueleto",
+											"sid": 863268689393877,
+											"parameters": {
+												"effect": "\"Brillo\"",
+												"parameter-index": "0",
+												"value": "200"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 737667708130215,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-parameter",
+											"objectClass": "Esqueleto",
+											"sid": 377995703712008,
+											"parameters": {
+												"effect": "\"Brillo\"",
+												"parameter-index": "0",
+												"value": "100"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "espada",
+											"sid": 822237319307816
+										}
+									],
+									"sid": 435497272497896,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Esqueleto",
+									"sid": 842248050640478,
+									"parameters": {
+										"instance-variable": "vidaesque",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 537973719391037,
+									"parameters": {
+										"object-to-create": "muerteEsqueleto",
+										"layer": "10",
+										"x": "Esqueleto.X",
+										"y": "Esqueleto.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Esqueleto",
+									"sid": 632772769250379
+								}
+							],
+							"sid": 625174164685957,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Esqueleto",
+									"sid": 728494068881614,
+									"parameters": {
+										"object": "fin"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Esqueleto",
+									"sid": 735386719275293
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 812073289821301,
+									"parameters": {
+										"object-to-create": "muerteEsqueleto",
+										"layer": "10",
+										"x": "Esqueleto.X",
+										"y": "Esqueleto.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 646804129850873,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 124812930275945
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Espada",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 594754510442161
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "espada2",
+							"sid": 512912215662112,
+							"parameters": {
+								"x": "usuario2.X",
+								"y": "usuario2.Y"
+							}
+						}
+					],
+					"sid": 169730284713258
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-mirrored",
+							"objectClass": "usuario2",
+							"sid": 779520237441449
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "espada2",
+							"sid": 252803619981228,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 679683364032489
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 460585961348587
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "espada2",
+							"sid": 579929399833612,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 225109016734324
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Teclado",
+							"sid": 592778255823948,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "usuario2",
+							"sid": 254528762874691,
+							"parameters": {
+								"animation": "\"atack\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 542888340243995,
+							"parameters": {
+								"object-to-create": "espada2",
+								"layer": "10",
+								"x": "usuario2.X",
+								"y": "usuario2.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 329277258253615
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "espada2",
+							"sid": 687838770208634,
+							"parameters": {
+								"animation": "\"atack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "espada2",
+							"sid": 111067842299034
+						}
+					],
+					"sid": 281957807371097
+				}
+			],
+			"sid": 433820346079970
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Musica2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 890970979933889
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 780717493633578,
+							"parameters": {
+								"folder": "music",
+								"audio-file-name": "\"Pixel 5\"",
+								"loop": "looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 809057320166678
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-end-of-layout",
+							"objectClass": "System",
+							"sid": 384237020953476
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 722564143903996
+						}
+					],
+					"sid": 667361378722909
+				}
+			],
+			"sid": 222048514609160
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AtaqueESqueleto",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 659545466143362,
+							"parameters": {
+								"object": "Esqueleto"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 496140821929698,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "Esqueleto",
+									"sid": 988458380067915,
+									"behaviorType": "LíneaDeVisión",
+									"parameters": {
+										"object": "usuario2",
+										"image-point": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 517994713501732,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 782216853089918,
+											"parameters": {
+												"first-value": "distance(Esqueleto.X,Esqueleto.Y,usuario2.X,usuario2.Y)",
+												"comparison": 4,
+												"second-value": "50"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 221321527503030,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "usuario2",
+													"sid": 105539304976973,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "Esqueleto.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "Esqueleto",
+													"sid": 642618968102213,
+													"behaviorType": "Plataforma",
+													"parameters": {
+														"control": "left"
+													}
+												},
+												{
+													"id": "set-mirrored",
+													"objectClass": "Esqueleto",
+													"sid": 460184376493680,
+													"parameters": {
+														"state": "mirrored"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Esqueleto",
+													"sid": 903977218329915,
+													"parameters": {
+														"animation": "\"caminar\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 270626803393198
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "usuario2",
+													"sid": 232281716431795,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "Esqueleto.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "Esqueleto",
+													"sid": 510226133895298,
+													"behaviorType": "Plataforma",
+													"parameters": {
+														"control": "right"
+													}
+												},
+												{
+													"id": "set-mirrored",
+													"objectClass": "Esqueleto",
+													"sid": 192676092709219,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Esqueleto",
+													"sid": 441576195885311,
+													"parameters": {
+														"animation": "\"caminar\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 310471092932693
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 671221339710416,
+											"parameters": {
+												"first-value": "distance(Esqueleto.X,Esqueleto.Y,usuario2.X,usuario2.Y)",
+												"comparison": 3,
+												"second-value": "50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Esqueleto",
+											"sid": 773739327548263,
+											"parameters": {
+												"animation": "\"ataque\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 517085675738524
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "Esqueleto",
+							"sid": 656466339696369,
+							"behaviorType": "LíneaDeVisión",
+							"parameters": {
+								"object": "usuario2",
+								"image-point": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Esqueleto",
+							"sid": 636396674008291,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 691041735144586
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Esqueleto",
+							"sid": 211887797131229,
+							"parameters": {
+								"object": "usuario2"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Esqueleto",
+							"sid": 656346296170036,
+							"parameters": {
+								"animation": "\"ataque\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Esqueleto",
+							"sid": 364042330296383,
+							"parameters": {
+								"comparison": 5,
+								"number": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "usuario2",
+							"sid": 903884475086362,
+							"parameters": {
+								"instance-variable": "vidas",
+								"value": "20"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "vidabarra",
+							"sid": 630500749385901,
+							"parameters": {
+								"width": "vidabarra.Width -20"
+							}
+						}
+					],
+					"sid": 522033899954758,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "usuario2",
+									"sid": 749673180327410,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "Esqueleto.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "usuario2",
+									"sid": 558745464848536,
+									"parameters": {
+										"x": "usuario2.X-5"
+									}
+								}
+							],
+							"sid": 564604506547450
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "usuario2",
+									"sid": 476541164403769,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "Esqueleto.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "usuario2",
+									"sid": 165710207571218,
+									"parameters": {
+										"x": "usuario2.X+5"
+									}
+								}
+							],
+							"sid": 249804059674844
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario2",
+							"sid": 524445355302449,
+							"parameters": {
+								"instance-variable": "vidas",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-width",
+							"objectClass": "vidabarra",
+							"sid": 170856788238504,
+							"parameters": {
+								"comparison": 3,
+								"width": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "vidabarra",
+							"sid": 321399732335185,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario2",
+							"sid": 347839234810419
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 467260126779825,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 954152645302831
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 823129258884304
+						}
+					],
+					"sid": 571759440642494
+				}
+			],
+			"sid": 276800294308909
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BossFinal",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "FinalBoss",
+							"sid": 971075768524548,
+							"behaviorType": "LíneaDeVisión",
+							"parameters": {
+								"object": "usuario2",
+								"image-point": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 169151333888574,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 636095416241304,
+									"parameters": {
+										"first-value": "distance(FinalBoss.X,FinalBoss.Y,usuario2.X,usuario2.Y)",
+										"comparison": 4,
+										"second-value": "50"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 150924568224732,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "usuario2",
+											"sid": 351411624971334,
+											"parameters": {
+												"comparison": 2,
+												"x-co-ordinate": "FinalBoss.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "FinalBoss",
+											"sid": 361960598456954,
+											"behaviorType": "Plataforma",
+											"parameters": {
+												"control": "left"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "FinalBoss",
+											"sid": 239834835512272,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "FinalBoss",
+											"sid": 474262976843896,
+											"parameters": {
+												"animation": "\"walk\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 257929960019660
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "usuario2",
+											"sid": 917777952798031,
+											"parameters": {
+												"comparison": 4,
+												"x-co-ordinate": "FinalBoss.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "FinalBoss",
+											"sid": 908548243332210,
+											"behaviorType": "Plataforma",
+											"parameters": {
+												"control": "right"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "FinalBoss",
+											"sid": 825468845517417,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "FinalBoss",
+											"sid": 204624301649482,
+											"parameters": {
+												"animation": "\"walk\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 982898762225937
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 887035119415759,
+									"parameters": {
+										"first-value": "distance(FinalBoss.X,FinalBoss.Y,usuario2.X,usuario2.Y)",
+										"comparison": 3,
+										"second-value": "50"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "FinalBoss",
+									"sid": 921838791862188,
+									"parameters": {
+										"animation": "\"atack\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 859568521760591
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "FinalBoss",
+							"sid": 831397146300021,
+							"behaviorType": "LíneaDeVisión",
+							"parameters": {
+								"object": "usuario2",
+								"image-point": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "FinalBoss",
+							"sid": 949608640361734,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 588983350635846
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "FinalBoss",
+							"sid": 669310826265264,
+							"parameters": {
+								"object": "usuario2"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "FinalBoss",
+							"sid": 430923558784116,
+							"parameters": {
+								"animation": "\"atack\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "FinalBoss",
+							"sid": 838125092516311,
+							"parameters": {
+								"comparison": 5,
+								"number": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "usuario2",
+							"sid": 954768951606069,
+							"parameters": {
+								"instance-variable": "vidas",
+								"value": "35"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "vidabarra",
+							"sid": 655843833850651,
+							"parameters": {
+								"width": "vidabarra.Width -35"
+							}
+						}
+					],
+					"sid": 180439196750438,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "usuario2",
+									"sid": 653200176283194,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "FinalBoss.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "usuario2",
+									"sid": 369013964236961,
+									"parameters": {
+										"x": "usuario2.X-5"
+									}
+								}
+							],
+							"sid": 418794215756039
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "usuario2",
+									"sid": 245714816280459,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "FinalBoss.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "usuario2",
+									"sid": 544416859787780,
+									"parameters": {
+										"x": "usuario2.X+5"
+									}
+								}
+							],
+							"sid": 718408171602981
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "usuario2",
+							"sid": 578695268793963,
+							"parameters": {
+								"instance-variable": "vidas",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-width",
+							"objectClass": "vidabarra",
+							"sid": 246598241580536,
+							"parameters": {
+								"comparison": 3,
+								"width": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "vidabarra",
+							"sid": 793206578899637,
+							"parameters": {
+								"width": "0"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "usuario2",
+							"sid": 268950809819192
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 504095901303177,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 549195090337472
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 259894477362449
+						}
+					],
+					"sid": 951029397139067
+				}
+			],
+			"sid": 232907815747692
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "EsqueletoDaño",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 439862600064758,
+							"parameters": {
+								"object": "Esqueleto"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 877577256756592,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Esqueleto",
+									"sid": 506365024742736,
+									"parameters": {
+										"object": "espada2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Esqueleto",
+									"sid": 754724726299224,
+									"parameters": {
+										"instance-variable": "vidaesque",
+										"value": "10"
+									}
+								}
+							],
+							"sid": 422661920769289,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 633309530917096
+										}
+									],
+									"actions": [
+										{
+											"id": "set-effect-parameter",
+											"objectClass": "Esqueleto",
+											"sid": 385662410207191,
+											"parameters": {
+												"effect": "\"Brillo\"",
+												"parameter-index": "0",
+												"value": "200"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 390862414031012,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-effect-parameter",
+											"objectClass": "Esqueleto",
+											"sid": 687701739943067,
+											"parameters": {
+												"effect": "\"Brillo\"",
+												"parameter-index": "0",
+												"value": "100"
+											}
+										}
+									],
+									"sid": 313243874610446
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Esqueleto",
+									"sid": 216138324705378,
+									"parameters": {
+										"instance-variable": "vidaesque",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Esqueleto",
+									"sid": 752225199992849
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 808296557428180,
+									"parameters": {
+										"object-to-create": "muerteEsqueleto",
+										"layer": "10",
+										"x": "Esqueleto.X",
+										"y": "Esqueleto.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 332718770158357
+						}
+					]
+				}
+			],
+			"sid": 299338648284370
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DañoFinalBoss",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "FinalBoss",
+							"sid": 632617371413915,
+							"parameters": {
+								"object": "espada2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "FinalBoss",
+							"sid": 649567955459398,
+							"parameters": {
+								"instance-variable": "BossLife",
+								"value": "10"
+							}
+						}
+					],
+					"sid": 520302040984959,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 635428171522162
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "FinalBoss",
+									"sid": 491447658682829,
+									"parameters": {
+										"effect": "\"Brillo\"",
+										"parameter-index": "0",
+										"value": "200"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 637814711907670,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "FinalBoss",
+									"sid": 612944155626112,
+									"parameters": {
+										"effect": "\"Brillo\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 946471261193235
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "FinalBoss",
+							"sid": 586318248684855,
+							"parameters": {
+								"instance-variable": "BossLife",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "FinalBoss",
+							"sid": 549863060986776
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 253062076928443,
+							"parameters": {
+								"object-to-create": "MuerteBoss",
+								"layer": "10",
+								"x": "FinalBoss.X",
+								"y": "FinalBoss.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Boss",
+							"sid": 669159087892416,
+							"parameters": {
+								"text": "\"Felicidades terminaste este juego cruel llamado universidad \""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 214048829069778,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Boss",
+							"sid": 353034151723045
+						}
+					],
+					"sid": 522354936956853
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Boss",
+							"sid": 133210007457433
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 824351278788430,
+							"parameters": {
+								"object-to-create": "Boss",
+								"layer": "10",
+								"x": "Boss.X",
+								"y": "Boss.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Boss",
+							"sid": 161851381136016,
+							"parameters": {
+								"text": "\"Ya te menospreciaron y explotaron, ya estas listo para el salario minimo\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 954259123783692,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Boss",
+							"sid": 409265017089334
+						}
+					],
+					"sid": 492413393754327
+				}
+			],
+			"sid": 326393940073922
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SaltoEsqueleto",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 483323900214284,
+							"parameters": {
+								"object": "Esqueleto"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 724790671110116,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Esqueleto",
+									"sid": 553785036654752,
+									"parameters": {
+										"object": "obstaculo1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Esqueleto",
+									"sid": 370024920750925,
+									"behaviorType": "Plataforma",
+									"parameters": {
+										"control": "jump"
+									}
+								}
+							],
+							"sid": 391337840894880
+						}
+					]
+				}
+			],
+			"sid": 868856225940303
+		}
+	],
+	"sid": 129250512121637
+}

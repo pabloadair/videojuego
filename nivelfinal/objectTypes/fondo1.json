@@ -1,0 +1,21 @@
+{
+	"name": "fondo1",
+	"plugin-id": "TiledBg",
+	"sid": 388503153602683,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 768,
+		"height": 416,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2543513,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

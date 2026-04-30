@@ -1,0 +1,21 @@
+{
+	"name": "arbusto2",
+	"plugin-id": "TiledBg",
+	"sid": 272158327493560,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 212,
+		"height": 96,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 1722737,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

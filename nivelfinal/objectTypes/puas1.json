@@ -1,0 +1,60 @@
+{
+	"name": "puas1",
+	"plugin-id": "Sprite",
+	"sid": 438930040740854,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Sólido",
+			"sid": 515288526751490
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 192,
+						"height": 50,
+						"originX": 0.49,
+						"originY": 0.5192307692307693,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4603652,
+						"collisionPoly": {
+							"points": [
+								0.8586868686868688,
+								0.07616892911010559,
+								0.9849494949494949,
+								0.5569381598793364,
+								0.9849494949494949,
+								0.9434389140271493,
+								0.007676767676767675,
+								0.9434389140271493,
+								0.007676767676767675,
+								0.6323529411764706,
+								0.13646464646464648,
+								0.16101055806938158
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 606421852564423,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
